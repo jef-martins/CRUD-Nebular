@@ -1,10 +1,45 @@
-<nb-layout center>
-    <nb-layout-header>Awesome Company</nb-layout-header>
-  
-    <nb-layout-column>
-      Hello World!
-    </nb-layout-column>
-  
-    <nb-layout-footer>Contact us</nb-layout-footer>
-  </nb-layout>
- 
+<nb-card status="danger" *ngIf="!bancos">
+  <nb-card-header>Erro</nb-card-header>
+  <nb-card-body>
+    Não foi possivel listar as informações abaixo
+  </nb-card-body>
+</nb-card>
+<!--Separação da tabela com o card de erro-->
+<nb-card *ngIf="bancos">
+  <nb-card-body>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Descrição</th>
+          <th scope="col">Tipo de Conta</th>
+          <th scope="col">Data Inicial</th>
+          <th scope="col">Saldo</th>
+          <th scope="col">Nº da Conta</th>
+          <th scope="col">Agencia</th>
+          <th scope="col">CPF</th>
+          <th scope="col">Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let banco of bancos">
+          <th>{{banco.descricao}}</th>
+          <td>{{banco.tipoConta}}</td>
+          <td>{{data(banco.data)}}</td>
+          <td>{{banco.saldo.toLocaleString('pt-BR', {style: 'currency',currency: 'BRL'})}}</td>
+          <td>{{banco.conta}}</td>
+          <td>{{banco.agencia}}</td>
+          <td>{{cpf(banco.cpf)}}</td>
+          <td>
+            <a routerLink="/update/{{banco.id}}" class="text-decoration-none">
+              <nb-icon status="primary" icon="edit"></nb-icon>
+            </a>
+            |
+            <a routerLink="/delete/{{banco.id}}" class="text-decoration-none">
+              <nb-icon status="danger" icon="trash-2"></nb-icon>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </nb-card-body>
+</nb-card>
