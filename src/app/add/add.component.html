@@ -1,0 +1,64 @@
+<nb-card>
+    <nb-card-body class="example-items-rows">
+        <div class="text-center">
+            <h4>Cadastro de Conta Bancária</h4>
+        </div>
+        <form [formGroup]="bancoForm">
+            <div class="mt-3">
+                <label>Insira a Descrição</label>
+                <nb-form-field>
+                    <nb-icon nbPrefix icon="text"></nb-icon>
+                    <input formControlName="descricao" fullWidth type="text" nbInput placeholder="Descrição da Conta">
+                </nb-form-field>
+            </div>
+            <div class="mt-3">
+                <label>Escolha o tipo de conta</label>
+                <nb-form-field>
+                    <nb-icon nbPrefix icon="attach"></nb-icon>
+                    <nb-select formControlName="tipoConta" fullWidth>
+                        <nb-option value="Conta Corrente">Conta Corrente</nb-option>
+                        <nb-option value="Conta Poupança">Conta Poupança</nb-option>
+                        <nb-option value="Conta Salario">Conta Salário</nb-option>
+                      </nb-select>
+                </nb-form-field>
+            </div>
+            <div class="mt-3">
+                <label>Selecione a data de criação</label>
+                <nb-form-field>
+                    <nb-icon nbPrefix icon="calendar-outline"></nb-icon>
+                    <input formControlName="data" fullWidth nbInput placeholder="Pick Date" [nbDatepicker]="dateTimePicker">
+                    <nb-datepicker #dateTimePicker></nb-datepicker>
+                </nb-form-field>
+            </div>
+            <div class="mt-3">
+                <label>Digite o valor inicial</label>
+                <nb-form-field>
+                    <nb-icon nbPrefix icon="hash"></nb-icon>
+                    <input formControlName="saldo" fullWidth type="text" nbInput placeholder="Digite o valor inicial">
+                </nb-form-field>
+            </div>
+            <div class="mt-3">
+                <label>Digite o numero da conta</label>
+                <nb-form-field>
+                    <nb-icon nbPrefix icon="hash"></nb-icon>
+                    <input formControlName="conta" fullWidth type="text" nbInput placeholder="Digite o numero da conta">
+                </nb-form-field>
+            </div>
+            <div class="mt-3">
+                <label>Digite o numero da agencia</label>
+                <nb-form-field>
+                    <nb-icon nbPrefix icon="hash"></nb-icon>
+                    <input formControlName="agencia" fullWidth type="text" nbInput
+                        placeholder="Digite o numero da agencia">
+                </nb-form-field>
+            </div>
+            <div class="mt-3">
+                <label>Digite o CPF</label>
+                <nb-form-field>
+                    <nb-icon nbPrefix icon="credit-card-outline"></nb-icon>
+                    <input formControlName="cpf" fullWidth type="text" nbInput placeholder="Digite o CPF">
+                </nb-form-field>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

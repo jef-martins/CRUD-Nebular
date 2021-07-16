@@ -9,12 +9,16 @@ import { Observable } from 'rxjs';
 export class AppService {
 
   private url = "http://localhost:8081/";
-  
+
   constructor(private http: HttpClient) { }
 
 
   getAllBanco():Observable<Banco[]>{
     return this.http.get<Banco[]>(this.url);
+  }
+
+  createBanco(request: Banco):Observable<any>{
+    return this.http.post(this.url, request);
   }
 
 }
