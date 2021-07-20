@@ -3,40 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbListModule, NbIconModule, NbSidebarModule, NbActionsModule, NbCardModule, NbInputModule, NbFormFieldModule, NbDatepickerModule, NbSelectModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbActionsModule, NbDatepickerModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { AddComponent } from './add/add.component';
+import { HomeModule } from './home/home.module';
+import { AddModule } from './add/add.module';
+import { UpdateModule } from './update/update.module';
+import { DeleteModule } from './delete/delete.module';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    AddComponent
+    AppComponent
   ],
   imports: [
-    ReactiveFormsModule,
+    HomeModule,
+    AddModule,
+    UpdateModule, 
+    DeleteModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'default' }),
-    NbLayoutModule,
-    NbListModule,
-    FormsModule,
-    HttpClientModule,
-    NbIconModule,
-    NbSidebarModule.forRoot(),
     NbActionsModule,
+    NbLayoutModule,
     NbEvaIconsModule,
-    RouterModule,
-    NbCardModule,
-    NbInputModule,
-    NbFormFieldModule,
-    NbSelectModule,
     NbDatepickerModule.forRoot()
   ],
   providers: [],

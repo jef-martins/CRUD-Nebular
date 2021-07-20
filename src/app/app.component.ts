@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { NbSidebarService } from '@nebular/theme';
-import { NbIconConfig } from '@nebular/theme';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +8,8 @@ import { NbIconConfig } from '@nebular/theme';
 export class AppComponent {
   title = 'CRUD-Nebular';
 
-  constructor(private sidebarService: NbSidebarService) {
+  constructor() {
   }
 
-  toggle() {
-    this.sidebarService.toggle(true);
-    return false;
-  }
+ 
 }

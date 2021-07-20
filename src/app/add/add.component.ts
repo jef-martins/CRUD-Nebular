@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { BANCO } from '../models/banco-constantes';
 import { AppService } from '../services/app.service';
-import { tap, debounceTime } from 'rxjs/operators'
 
 @Component({
   selector: 'app-add',
@@ -30,9 +29,41 @@ export class AddComponent implements OnInit {
   ngOnInit(): void {
     this.iniciarForm();
     this.bancoForm.get('data')?.valueChanges.pipe().subscribe(form => {
+
+      //this.bancoForm.get('data')?.setValue(Intl.DateTimeFormat('pt-BR').format(form));
+
+      /*this.bancoForm.patchValue({
+        'data': Intl.DateTimeFormat('pt-BR').format(form)
+      });*/
       this.bancoForm.value.data = Intl.DateTimeFormat('pt-BR').format(form);
-      //this.bancoForm.setValue({['data']}) --->>> pesquisar
+
     });
+    /*
+    this.bancoForm.get('cpf')?.valueChanges.pipe().subscribe(form => {
+
+      switch(form.length){
+        case 3:
+          form = form.replace(/(\d{3})/, "$1.");
+          break;
+        case 6:
+          form = form.replace(/(\d{3})(\d{3})/, "$1.$2.");
+          break;
+        case 9:
+          form = form.replace(/(\d{3})(\d{3})(\d{3})/, "$1.$2.$3-");
+          break;
+        case 11:
+          form = form.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+          break;
+        default:
+          if(form.length > 11)
+            alert("Cpf Invalido")
+          break;
+      }
+      
+      this.bancoForm.value.cpf = form;
+      console.log(form)
+    });
+    */
   }
 
   ngOnDestroy():void {
@@ -47,6 +78,5 @@ export class AddComponent implements OnInit {
   cancelar(){
     this._route.navigate(['home']);
   }
-
 
 }

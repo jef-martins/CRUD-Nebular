@@ -21,4 +21,16 @@ export class AppService {
     return this.http.post(this.url, request);
   }
 
+  getOneBanco(id: number):Observable<Banco>{
+    return this.http.get<Banco>(this.url+id);
+  }
+
+  update(id: number, request: Banco):Observable<Banco>{
+    return this.http.put<Banco>(this.url+id, request);
+  }
+
+  delete(id: number):Observable<any>{
+    return this.http.delete(this.url+id);
+  }
+
 }

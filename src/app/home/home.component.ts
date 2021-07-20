@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AppService } from '../services/app.service';
 import { Banco } from '../models/banco';
+import { AppService } from '../services/app.service';
 
 @Component({
   selector: 'app-home',
@@ -38,4 +38,5 @@ export class HomeComponent implements OnInit {
 
     return cpf;
   }
+
 }
